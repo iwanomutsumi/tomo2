@@ -15,18 +15,18 @@
   <!-- StPageFlip の JS -->
   <script src="https://unpkg.com/stpageflip/dist/stpageflip.js"></script>
   <script>
-    // StPageFlip の初期化
-    const pageFlip = new St.PageFlip(
-      document.getElementById("book"),
-      {
-        width: 600,
-        height: 400,
-        showCover: true
-      }
-    );
+   import {PageFlip} from 'page-flip';
 
-    // PDF の読み込み
-    pageFlip.loadFromPDF("sample.pdf"); // PDF の名前を正確に
+const pageFlip = new PageFlip(document.getElementById('book'),
+    {
+        width: 400,
+        height: 600,
+        size: "fixed" // or "stretch"
+        //...
+    }
+);
+
+pageFlip.loadFromHTML(document.querySelectorAll('sample.pdf'));
   </script>
 </body>
 </html>
