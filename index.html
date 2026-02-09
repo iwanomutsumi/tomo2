@@ -2,33 +2,31 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>StPageFlip PDF</title>
-
-  <script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.js"></script>
-
-  <style>
-    #book {
-      width: 600px;
-      height: 800px;
-      margin: 50px auto;
-    }
-  </style>
+  <title>サンプルPDFめくり本</title>
+  <!-- StPageFlip の CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/stpageflip/dist/style.css">
 </head>
 <body>
-<p>サンプルPDFです。</p>
-<div id="book"></div>
+  <p>サンプルPDFです。</p>
 
-<script>
-const pageFlip = new St.PageFlip(
-  document.getElementById("book"),
-  {
-    width: 600,
-    height: 800,
-  }
-);
+  <!-- ページめくりを表示する場所 -->
+  <div id="book" style="width: 600px; height: 400px;"></div>
 
-pageFlip.loadFromPDF("PDF.pdf");
-</script>
+  <!-- StPageFlip の JS -->
+  <script src="https://unpkg.com/stpageflip/dist/stpageflip.js"></script>
+  <script>
+    // StPageFlip の初期化
+    const pageFlip = new St.PageFlip(
+      document.getElementById("book"),
+      {
+        width: 600,
+        height: 400,
+        showCover: true
+      }
+    );
 
+    // PDF の読み込み
+    pageFlip.loadFromPDF("PDF.pdf"); // PDF の名前を正確に
+  </script>
 </body>
 </html>
